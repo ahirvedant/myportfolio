@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vedant Ahir | Computer Engineer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --black:#080808;
+  --black2:#0f0f0f;
+  --black3:#141414;
+  --black4:#1c1c1c;
+  --white:#f5f5f0;
+  --white2:#b8b8b0;
+  --white3:#6a6a62;
+  --line:#222222;
+  --accent:#47ffb0;     
+  --accent2:#ffffff;
+  --radius:4px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;cursor:default;}
+
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--black);}
+::-webkit-scrollbar-thumb{background:var(--accent);}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:0 6%;background:rgba(8,8,8,0.85);backdrop-filter:blur(12px);}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:64px;border-bottom:1px solid var(--line);}
+.logo{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:.08em;color:var(--white);text-transform:uppercase;}
+.logo span{color:var(--accent);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{color:var(--white3);text-decoration:none;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;transition:color .25s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-actions{display:flex;align-items:center;gap:1rem;}
+.nav-cta{background:var(--accent);color:var(--black);padding:.45rem 1.2rem;font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:opacity .25s;}
+.nav-cta:hover{opacity:.85;}
+.btn-download-cv{background:transparent;border:1px solid var(--accent);color:var(--accent);padding:.45rem 1.2rem;font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:.5rem;border-radius:var(--radius);cursor:pointer;}
+.btn-download-cv i{font-size:.8rem;}
+.btn-download-cv:hover{background:var(--accent);color:var(--black);}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 6% 6rem;max-width:100%;position:relative;overflow:hidden;}
+.hero-line-bg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+.hero-line-bg::before{content:'';position:absolute;top:0;right:0;width:1px;height:100%;background:var(--line);}
+.hero-line-bg::after{content:'';position:absolute;top:50%;left:0;width:100%;height:1px;background:var(--line);opacity:.4;}
+.hero-number{position:absolute;top:7rem;right:6%;font-family:'Syne',sans-serif;font-size:clamp(10rem,18vw,18rem);font-weight:800;color:var(--black3);line-height:1;pointer-events:none;user-select:none;z-index:0;letter-spacing:-.05em;}
+.hero-content{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;}
+.hero-tag{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:2.5rem;}
+.hero-tag-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse-dot 2s ease-in-out infinite;}
+@keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero-tag span{font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--white2);}
+h1.hero-name{font-family:'Syne',sans-serif;font-size:clamp(3rem,8vw,7rem);font-weight:800;line-height:.95;letter-spacing:-.03em;margin-bottom:2rem;animation:fadeUp .9s .1s ease both;}
+h1.hero-name .outline{-webkit-text-stroke:1px var(--white);color:transparent;}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.hero-desc{max-width:480px;color:var(--white2);line-height:1.75;font-size:.95rem;font-weight:300;animation:fadeUp .9s .3s ease both;}
+.hero-btns{display:flex;gap:1rem;align-items:center;animation:fadeUp .9s .5s ease both;}
+.btn-acc{background:var(--accent);color:var(--black);padding:.75rem 2rem;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:opacity .25s;}
+.btn-acc:hover{opacity:.85;}
+.btn-ghost{color:var(--white2);font-size:.85rem;letter-spacing:.05em;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:color .25s;}
+.btn-ghost:hover{color:var(--white);}
+.btn-ghost::after{content:'→';transition:transform .25s;}
+.btn-ghost:hover::after{transform:translateX(4px);}
+.hero-scroll{position:absolute;bottom:3rem;right:6%;display:flex;flex-direction:column;align-items:center;gap:.8rem;color:var(--white3);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;z-index:1;animation:fadeIn 1.5s 1s ease both;}
+.hero-scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--accent),transparent);}
+
+/* MARQUEE */
+.marquee-wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:.9rem 0;background:var(--black2);}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 22s linear infinite;}
+.marquee-item{display:inline-flex;align-items:center;gap:1.5rem;padding:0 2rem;font-family:'Syne',sans-serif;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--white3);}
+.marquee-item span{color:var(--accent);}
+
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* COMMON SECTION */
+.sec-wrap{padding:7rem 6%;max-width:1200px;margin:0 auto;}
+.sec-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4rem;border-bottom:1px solid var(--line);padding-bottom:1.2rem;}
+.sec-num{font-family:'Syne',sans-serif;font-size:.75rem;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;}
+.sec-title-h{font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;letter-spacing:-.02em;}
+.sec-title-h span{color:var(--accent);}
+
+/* ABOUT */
+#about-bg{background:var(--black2);}
+.about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:5rem;align-items:start;}
+.about-photo{position:relative;}
+.about-img-wrap{position:relative;display:inline-block;background:linear-gradient(145deg, #1a1f1c, #0b0e0c); border-radius:12px;}
+.about-img-wrap img{width:100%;max-width:320px;display:block;filter:grayscale(20%) contrast(1.05);border-radius:12px;object-fit:cover;object-position:top;}
+.about-img-wrap::before{content:'';position:absolute;top:-10px;left:-10px;right:10px;bottom:10px;border:1px solid var(--line);border-radius:16px;z-index:-1;}
+.about-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,var(--black2));pointer-events:none;border-radius:12px;}
+.about-label{display:inline-block;background:var(--accent);color:var(--black);font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .8rem;margin-bottom:1.5rem;}
+.about-text-main{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;line-height:1.5;margin-bottom:1.5rem;letter-spacing:-.01em;}
+.about-text-main em{font-style:normal;color:var(--accent);}
+.about-body{color:var(--white2);line-height:1.8;font-weight:300;margin-bottom:2rem;font-size:.95rem;}
+.about-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem .5rem;}
+.info-row{display:flex;flex-direction:column;gap:.15rem;padding:.8rem;border:1px solid var(--line);}
+.info-row .label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--white3);}
+.info-row .val{font-size:.88rem;color:var(--white);}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);}
+.skill-cell{background:var(--black);padding:2rem 1.8rem;}
+.skill-cell:hover{background:var(--black2);}
+.skill-cell-icon{font-size:1.5rem;margin-bottom:1rem;}
+.skill-cell h4{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--white3);margin-bottom:1.2rem;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.5rem;}
+.tag{background:transparent;border:1px solid var(--line);color:var(--white2);padding:.3rem .7rem;font-size:.8rem;letter-spacing:.04em;transition:all .25s;}
+.tag:hover{border-color:var(--accent);color:var(--accent);}
+
+/* PROJECTS */
+#proj-bg{background:var(--black2);}
+.proj-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);}
+.proj-item{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;transition:background .25s;position:relative;cursor:pointer;}
+.proj-item:hover{background:rgba(71,255,176,.03);}
+.proj-item:hover .proj-num{color:var(--accent);}
+.proj-item:hover .proj-arrow{transform:translate(4px,-4px);color:var(--accent);}
+.proj-item:hover h3{color:var(--accent);}
+.proj-num{font-family:'Syne',sans-serif;font-size:.75rem;color:var(--white3);letter-spacing:.15em;width:40px;}
+.proj-main{}
+.proj-badge-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.4rem;}
+.proj-badge{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--white3);border:1px solid var(--line);padding:.2rem .6rem;}
+.proj-main h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:.5rem;transition:color .25s;}
+.proj-desc{color:var(--white2);font-size:.88rem;line-height:1.65;max-width:600px;font-weight:300;}
+.proj-tech-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem;}
+.tech-pill{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white3);padding:.2rem .5rem;border:1px solid var(--line);}
+.proj-arrow{font-size:1.3rem;color:var(--white3);transition:transform .25s,color .25s;flex-shrink:0;}
+.certs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);}
+.cert-item{background:var(--black2);padding:2rem 2rem;display:flex;align-items:flex-start;gap:1.4rem;text-decoration:none;transition:background .25s;}
+.cert-item:hover{background:var(--black3);}
+.cert-icon-box{width:46px;height:46px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.cert-item h4{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;margin-bottom:.3rem;color:var(--white);}
+.cert-item p{font-size:.8rem;color:var(--white3);}
+
+/* CONTACT & FOOTER */
+#contact-bg{background:var(--black);}
+.contact-wrap{max-width:1200px;margin:0 auto;padding:7rem 6%;}
+.contact-big{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,5.5rem);font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:3rem;}
+.contact-big .acc{color:var(--accent);}
+.contact-big .outline{-webkit-text-stroke:1px var(--white);color:transparent;}
+.contact-row{display:flex;gap:1px;background:var(--line);margin-bottom:2rem;flex-wrap:wrap;}
+.contact-card{background:var(--black2);padding:1.6rem 2rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;flex:1;min-width:180px;transition:background .25s;}
+.contact-card:hover{background:var(--black3);}
+.contact-card-icon{font-size:1.4rem;flex-shrink:0;}
+.contact-card small{display:block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--white3);margin-bottom:.25rem;}
+.contact-card strong{font-size:.88rem;color:var(--white);}
+.contact-cta-row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;}
+.contact-note{color:var(--white3);font-size:.88rem;font-weight:300;}
+
+footer{border-top:1px solid var(--line);padding:2rem 6%;display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;}
+footer p{font-size:.78rem;color:var(--white3);letter-spacing:.05em;}
+footer span{color:var(--accent);}
+
+/* TYPED */
+.hero-typed{font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--white3);letter-spacing:.08em;margin-bottom:2rem;min-height:1.4rem;animation:fadeUp .9s .5s ease both;}
+.cursor-blink{display:inline-block;width:2px;height:.9em;background:var(--accent);vertical-align:middle;margin-left:2px;animation:blink .7s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+@media(max-width:900px){
+  .skills-grid{grid-template-columns:repeat(2,1fr);}
+  .about-grid{grid-template-columns:1fr;}
+  .certs-grid{grid-template-columns:1fr;}
+  .proj-item{grid-template-columns:auto 1fr auto;}
+}
+@media(max-width:640px){
+  .nav-links{display:none;}
+  h1.hero-name{font-size:clamp(2.8rem,11vw,5rem);}
+  .skills-grid{grid-template-columns:1fr;}
+  .contact-row{flex-direction:column;gap:1px;}
+  .hero-number{display:none;}
+  footer{flex-direction:column;gap:.8rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">V<span>.</span>A</div>
+    <ul class="nav-links">
+      <li><a href="#about-bg">About</a></li>
+      <li><a href="#skills-bg">Skills</a></li>
+      <li><a href="#proj-bg">Projects</a></li>
+      <li><a href="#certs-bg">Certifications</a></li>
+      <li><a href="#contact-bg">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="downloadCVBtn" class="btn-download-cv"><i class="fa-solid fa-download"></i> Download CV</button>
+      <a href="mailto:vedantahir74@gmail.com" class="nav-cta">Hire Me</a>
+    </div>
+  </div>
+</nav>
+
+<div id="hero">
+  <div class="hero-line-bg"></div>
+  <div class="hero-number" aria-hidden="true">VA</div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <div class="hero-tag-dot"></div>
+      <span>Open for internships & collabs</span>
+    </div>
+    <div class="hero-typed"><span id="typed"></span><span class="cursor-blink"></span></div>
+    <h1 class="hero-name">
+      Vedant<br><span class="outline">Ahir</span>
+    </h1>
+    <div class="hero-bottom">
+      <div class="hero-btns">
+        <a href="#proj-bg" class="btn-acc">View Work</a>
+        <a href="#contact-bg" class="btn-ghost">Let's Connect</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Java <span>✦</span></span>
+    <span class="marquee-item">Python <span>✦</span></span>
+    <span class="marquee-item">React <span>✦</span></span>
+    <span class="marquee-item">Flask <span>✦</span></span>
+    <span class="marquee-item">MySQL <span>✦</span></span>
+    <span class="marquee-item">Scikit-learn <span>✦</span></span>
+    <span class="marquee-item">OOP <span>✦</span></span>
+    <span class="marquee-item">DSA <span>✦</span></span>
+    <span class="marquee-item">REST API <span>✦</span></span>
+    <span class="marquee-item">Pandas <span>✦</span></span>
+    <span class="marquee-item">Git/GitHub <span>✦</span></span>
+    <span class="marquee-item">Geospatial <span>✦</span></span>
+    <span class="marquee-item">Java <span>✦</span></span>
+    <span class="marquee-item">Python <span>✦</span></span>
+    <span class="marquee-item">React <span>✦</span></span>
+    <span class="marquee-item">Flask <span>✦</span></span>
+    <span class="marquee-item">MySQL <span>✦</span></span>
+    <span class="marquee-item">Scikit-learn <span>✦</span></span>
+    <span class="marquee-item">OOP <span>✦</span></span>
+    <span class="marquee-item">DSA <span>✦</span></span>
+    <span class="marquee-item">REST API <span>✦</span></span>
+    <span class="marquee-item">Pandas <span>✦</span></span>
+  </div>
+</div>
+
+<div id="about-bg">
+  <div class="sec-wrap">
+    <div class="sec-header reveal">
+      <span class="sec-num">— 01</span>
+      <h2 class="sec-title-h">About <span>Me</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <div class="about-img-wrap">
+          <img src="https://placehold.co/400x500/141414/47ffb0?text=Vedant+Ahir" alt="Vedant Ahir"/>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="about-label">Computer Engineering • Semester 4</div>
+        <p class="about-text-main">
+          Hi, I’m <strong>Vedant Ahir</strong> — a Computer Engineering student at 
+          <em>Lok Jagruti University</em> passionate about full-stack development, 
+          problem solving, and building real-world software solutions.
+        </p>
+        <p class="about-body">
+          I enjoy creating projects that combine modern web technologies with practical functionality — 
+          from vehicle marketplace platforms to geospatial business analysis systems. 
+          I have hands-on experience with Java, Python, JavaScript, Flask, SQL, and REST APIs, 
+          along with libraries like Pandas, NumPy, Matplotlib, and Scikit-learn.
+        </p>
+        <div class="about-info-grid">
+          <div class="info-row"><span class="label">University</span><span class="val">Lok Jagruti University, Ahmedabad</span></div>
+          <div class="info-row"><span class="label">Location</span><span class="val">Ahmedabad, Gujarat</span></div>
+          <div class="info-row"><span class="label">Graduation</span><span class="val">2028 (Expected)</span></div>
+          <div class="info-row"><span class="label">Email</span><span class="val">vedantahir74@gmail.com</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="skills-bg">
+  <div class="sec-wrap">
+    <div class="sec-header reveal">
+      <span class="sec-num">— 02</span>
+      <h2 class="sec-title-h">Tech <span>Stack</span></h2>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-cell"><div class="skill-cell-icon">⚙️</div><h4>Programming</h4><div class="skill-tags"><span class="tag">Java</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">SQL</span></div></div>
+      <div class="skill-cell"><div class="skill-cell-icon">🌐</div><h4>Web Development</h4><div class="skill-tags"><span class="tag">HTML5/CSS3</span><span class="tag">Flask</span><span class="tag">REST API</span><span class="tag">React</span><span class="tag">Bootstrap</span></div></div>
+      <div class="skill-cell"><div class="skill-cell-icon">📊</div><h4>Data & AI Libraries</h4><div class="skill-tags"><span class="tag">Pandas</span><span class="tag">Matplotlib</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span></div></div>
+      <div class="skill-cell"><div class="skill-cell-icon">🧠</div><h4>Core CS</h4><div class="skill-tags"><span class="tag">OOP</span><span class="tag">DBMS</span></div></div>
+      <div class="skill-cell"><div class="skill-cell-icon">🛠️</div><h4>Tools & DB</h4><div class="skill-tags"><span class="tag">Git/GitHub</span><span class="tag">MySQL</span><span class="tag">SQLite</span><span class="tag">JDBC</span></div></div>
+      <div class="skill-cell"><div class="skill-cell-icon">🗺️</div><h4>Specialized</h4><div class="skill-tags"><span class="tag">Geospatial</span><span class="tag">Groq API</span><span class="tag">PreparedStatements</span></div></div>
+    </div>
+  </div>
+</div>
+
+<div id="proj-bg">
+  <div class="sec-wrap">
+    <div class="sec-header reveal">
+      <span class="sec-num">— 03</span>
+      <h2 class="sec-title-h">Key <span>Projects</span></h2>
+    </div>
+    <div class="proj-list">
+      <a href="https://github.com/vedantahir74/GeoSpatial-Site-Readiness-Analyzer" target="_blank" class="proj-item reveal">
+        <div class="proj-num">01</div>
+        <div class="proj-main">
+          <div class="proj-badge-row"><span class="proj-badge">🏆 DA-IICT Hackathon 2026</span></div>
+          <h3>GeoSpatial Site Readiness Analyzer</h3>
+          <p class="proj-desc">Real-time business site analyzer for Gujarat built with React & Python. Evaluates demographics, competition, transport accessibility and generates readiness scores.</p>
+          <div class="proj-tech-row"><span class="tech-pill">React</span><span class="tech-pill">Python</span><span class="tech-pill">Geospatial</span><span class="tech-pill">Data Viz</span></div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/vedantahir74/WebWheels" target="_blank" class="proj-item reveal">
+        <div class="proj-num">02</div>
+        <div class="proj-main">
+          <div class="proj-badge-row"><span class="proj-badge">Sem-3 Group</span></div>
+          <h3>WebWheels — Vehicle Marketplace</h3>
+          <p class="proj-desc">Full-stack vehicle marketplace (Flask, SQLite) with multi-user transaction support. Integrated AI assistant (Groq API) for pricing analysis & recommendations.</p>
+          <div class="proj-tech-row"><span class="tech-pill">Flask</span><span class="tech-pill">SQLite</span><span class="tech-pill">Groq API</span><span class="tech-pill">Python</span></div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/vedantahir74/Wheels-And-Deals" target="_blank" class="proj-item reveal">
+        <div class="proj-num">03</div>
+        <div class="proj-main">
+          <div class="proj-badge-row"><span class="proj-badge">Sem-2 Group</span></div>
+          <h3>Wheels and Deals — Car Marketplace</h3>
+          <p class="proj-desc">JDBC-powered car marketplace with role-based access, full CRUD, linked-list data structure and PreparedStatements for optimized security.</p>
+          <div class="proj-tech-row"><span class="tech-pill">Java</span><span class="tech-pill">MySQL</span><span class="tech-pill">JDBC</span><span class="tech-pill">OOP</span></div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/vedantahir74/StoreManagementSystem" target="_blank" class="proj-item reveal">
+        <div class="proj-num">04</div>
+        <div class="proj-main">
+          <div class="proj-badge-row"><span class="proj-badge">Sem-1 Group</span></div>
+          <h3>Store Management System</h3>
+          <p class="proj-desc">Java-based grocery management system with efficient product catalog operations, OOP validation, and robust search functionality.</p>
+          <div class="proj-tech-row"><span class="tech-pill">Java</span><span class="tech-pill">OOP</span><span class="tech-pill">Collections</span></div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </a>
+      <a href="https://github.com/vedantahir74/BankManagementSystem" target="_blank" class="proj-item reveal">
+        <div class="proj-num">05</div>
+        <div class="proj-main">
+          <div class="proj-badge-row"><span class="proj-badge">Individual Project</span></div>
+          <h3>Bank Management System</h3>
+          <p class="proj-desc">Java-based system implementing OOP principles — account creation, transaction handling, loan processing. Secure authentication for multi-user environment.</p>
+          <div class="proj-tech-row"><span class="tech-pill">Java</span><span class="tech-pill">OOP</span><span class="tech-pill">File Handling</span></div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="certs-bg" style="background:var(--black2);">
+  <div class="sec-wrap">
+    <div class="sec-header reveal">
+      <span class="sec-num">— 04</span>
+      <h2 class="sec-title-h">Certifications & <span>Honors</span></h2>
+    </div>
+    <div class="certs-grid reveal">
+      <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=95EE4F8301AC30F4CE95480B2FD1DF5D88A12F80DEE5F5AFA104373CA040848C" target="_blank" class="cert-item">
+        <div class="cert-icon-box">☁️</div>
+        <div><h4>Oracle Cloud Infrastructure AI Foundations</h4><p>Oracle — AI & ML fundamentals</p></div>
+      </a>
+      <a href="https://unstop.com/certificate-preview/d532d807-3ccb-45b4-96db-671403f0cede" target="_blank" class="cert-item">
+        <div class="cert-icon-box">🏅</div>
+        <div><h4>Hackathon Participant — TIC Tech Toe ’2026</h4><p>DA-IICT | Geospatial innovation</p></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="contact-bg">
+  <div class="contact-wrap">
+    <div class="reveal">
+      <p class="sec-num" style="margin-bottom:1.5rem;">— 05</p>
+      <div class="contact-big">
+        Let's <span class="acc">build</span><br><span class="outline">together</span>
+      </div>
+    </div>
+    <div class="contact-row reveal">
+      <a href="mailto:vedantahir74@gmail.com" class="contact-card"><span class="contact-card-icon"><i class="fa-solid fa-envelope"></i></span><div><small>Email</small><strong>vedantahir74@gmail.com</strong></div></a>
+      <a href="tel:+917211172096" class="contact-card"><span class="contact-card-icon"><i class="fa-solid fa-phone"></i></span><div><small>Phone</small><strong>+91 72111 72096</strong></div></a>
+      <a href="https://github.com/vedantahir74" target="_blank" class="contact-card"><span class="contact-card-icon"><i class="fa-brands fa-github"></i></span><div><small>GitHub</small><strong>vedantahir74</strong></div></a>
+      <a href="https://www.linkedin.com/in/vedant-ahir-38448b349/" target="_blank" class="contact-card"><span class="contact-card-icon"><i class="fa-brands fa-linkedin"></i></span><div><small>LinkedIn</small><strong>Vedant Ahir</strong></div></a>
+    </div>
+    <div class="contact-cta-row reveal">
+      <a href="mailto:vedantahir74@gmail.com" class="btn-acc">Say Hello 👋</a>
+      <span class="contact-note">Open to internships, hackathons, and meaningful collaborations.</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Designed & Built by <span>Vedant Ahir</span> · 2026</p>
+</footer>
+
+<script>
+// Typed animation
+const phrases = ["Computer Engineering 🎓", "Full-Stack Developer 🌐", "AI & Geospatial Enthusiast 🤖", "Problem Solver 💡"];
+let pi = 0, ci = 0, del = false;
+const typedEl = document.getElementById('typed');
+function typeLoop(){
+  const curPhrase = phrases[pi];
+  if(!del){
+    typedEl.textContent = curPhrase.slice(0, ci+1);
+    ci++;
+    if(ci === curPhrase.length){ del = true; setTimeout(typeLoop, 1800); return; }
+  } else {
+    typedEl.textContent = curPhrase.slice(0, ci-1);
+    ci--;
+    if(ci === 0){ del = false; pi = (pi+1) % phrases.length; }
+  }
+  setTimeout(typeLoop, del ? 55 : 95);
+}
+typeLoop();
+
+// Intersection Observer for reveal animations
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ========== DOWNLOAD CV FUNCTIONALITY (embedded PDF from CV content) ==========
+function generateAndDownloadCV() {
+  // Create a hidden anchor to trigger download
+  const cvContent = `Vedant Ahir - Curriculum Vitae
+
+EDUCATION
+Bachelor of Engineering in Computer Engineering
+Lok Jagruti University, Ahmedabad, Gujarat
+Currently in Semester 4 | 2024 - 2028 (Expected)
+
+PROJECTS
+
+1. GeoSpatial Site Readiness Analyzer (DA-IICT Hackathon 2026)
+   • Developed geospatial business site analyzer using React & Python
+   • Evaluates demographics, competition, transport accessibility
+   • Generates real-time business readiness scores for Gujarat locations
+
+2. WebWheels - Vehicle Marketplace (Sem-3 Group Project)
+   • Full-stack marketplace with Flask & SQLite, multi-user transactions
+   • Integrated AI assistant (Groq API) for pricing analysis & recommendations
+
+3. Wheels and Deals - Car Marketplace (Sem-2 Group Project)
+   • Java-based system with MySQL JDBC, role-based access, full CRUD
+   • Implemented linked-list data structure & PreparedStatements for security
+
+4. Store Management System (Sem-1 Group Project)
+   • Java grocery management system, OOP validation, search functionality
+
+5. Bank Management System (Sem-1 Individual Project)
+   • Java OOP system: account creation, transactions, loan processing
+   • Secure authentication & validation for multi-user data handling
+
+SKILLS
+Programming: Java, Python, JavaScript, SQL
+Web Dev: HTML, CSS, Flask, REST APIs, React, Bootstrap
+Libraries: Pandas, Matplotlib, NumPy, Scikit-learn
+Core: DSA, OOP, DBMS
+Tools: Git, GitHub, MySQL, SQLite, JDBC
+
+CERTIFICATIONS
+• Oracle Cloud Infrastructure AI Foundations - Oracle
+• Hackathon Participant — TIC Tech Toe '2026 (DA-IICT)
+
+CONTACT
+Email: vedantahir74@gmail.com
+Phone: +91 72111 72096
+GitHub: github.com/vedantahir74
+LinkedIn: linkedin.com/in/vedant-ahir-38448b349
+
+Location: Ahmedabad, Gujarat
+Graduation: 2028 (Expected)`;
+
+  const blob = new Blob([cvContent], { type: 'application/pdf' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'Vedant_Ahir_s_CV_Computer_Engineer.pdf';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+// Attach download event to the button
+const downloadBtn = document.getElementById('downloadCVBtn');
+if(downloadBtn) {
+  downloadBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    generateAndDownloadCV();
+  });
+}
+</script>
+</body>
+</html>
